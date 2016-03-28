@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="/SolrService-0.0.1-SNAPSHOT.war">
+       <!--  <Environment name="sitemakermanagement/config-dir" type="java.lang.String" value="%(config_dir)s" />
+        <Environment name="sitemakermanagement/data-dir" type="java.lang.String" value="%(data_dir)s" />
+        <Environment name="sitemakermanagement/config-dir-spring" type="java.lang.String" value="file:%(config_dir)s" />
+        <Environment name="sitemakermanagement/data-dir-spring" type="java.lang.String" value="file:%(data_dir)s" /> -->
+
+	<Environment name="/solr/home" type="java.lang.String" value="/src/main/config/mysolr/" override="true"/>
+	
+	<!-- <Environment name="config/versionPropertiesPath" type="java.lang.String" value="file://%(config_dir)s/version.properties"/>
+	<Environment name="config/log4jConfigurationPath" type="java.lang.String" value="file://%(config_dir)s/log4j.xml" />
+	 -->
+	<!-- 
+	<Environment name="solr/home" override="true" type="java.lang.String"
+value="src/main/resources/solr-dev"/> -->
+	
+</Context>

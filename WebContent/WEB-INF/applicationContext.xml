@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:context="http://www.springframework.org/schema/context"
+          xmlns:util="http://www.springframework.org/schema/util"
+           xmlns:ehcache="http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring"
+          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring
+            http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd">
+            
+   <bean id="log4jInitialization" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+        <property name="targetMethod" value="initLogging" />
+        <property name="arguments">
+            <list>
+                <bean id="log4jConfigurationPath" class="org.springframework.jndi.JndiObjectFactoryBean">
+<!--                     <property name="jndiName">
+                        <value>java:comp/env/config/log4jConfigurationPath</value>
+                    </property>
+ -->                    <property name="defaultObject" value="${log4j.configuration:classpath:log4j.xml}"></property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+</beans>
